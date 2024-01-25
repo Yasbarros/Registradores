@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      overflow: hidden;
+    }
+    #mapa {
+      background: url(./assets/mapafinal.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      min-width: 100vw;
+      min-height: 100vh;
+    }
+    #player {
+      width: 50px;
+      height: 50px;
+      position: relative;
+      top: 350px;
+      left: 100px;
+    }
+    #player img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: drop-shadow(0px 15px 10px rgba(0, 0, 0, 0.651));
+}
+    #proxmapa {
+    height: 120px;
+    width:60px;
+    background: rgb(0, 0, 0);
+    box-shadow: 5px 0px 10px 15px rgb(0, 0, 0);
+    border-radius: 5px;
+    margin-top: 250px;
+    background: black;
+  }
+  #info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 200px;
+  margin-left: 670px;
+  margin-top: 80px;
+  background-color: red;
+}
+  .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo escurecido com transparência */
+  display: none;
+}
+
+.popup {
+  border-style:inset;
+  border-width:4.5rem;
+  border-color: rgb(141, 155, 167);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  text-align: justify;
+  border-radius: 15px;
+  font-size: 20px;
+  font-family: 'Tektur', cursive;
+}
+.tools {
+  display: flex;
+  align-items: center;
+  padding: 9px;
+ }
+ 
+ .circle {
+  padding: 0 4px;
+ }
+ 
+ .box {
+  display: inline-block;
+  align-items: center;
+  width: 10px;
+  height: 10px;
+  padding: 1px;
+  border-radius: 50%;
+ }
+ 
+ .red {
+  background-color: #ff605c;
+ }
+ 
+ .yellow {
+  background-color: #ffbd44;
+ }
+ 
+ .green {
+  background-color: #00ca4e;
+ }
+ #info1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 200px;
+  margin-left: 1270px;
+  margin-top: -440px;
+  background-color: rgb(0, 238, 255);
+}
+ .overlay1 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo escurecido com transparência */
+  display: none;
+}
+ .popup1 {
+  border-style:inset;
+  border-width:4.5rem;
+  border-color: rgb(141, 155, 167);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  text-align: justify;
+  border-radius: 15px;
+  font-size: 20px;
+  font-family: 'Tektur', cursive;
+}
+
+
+  </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <body>
+
+        <section id="mapa">
+
+      <div id="player">
+        <img src="./assets/leftSprite.png" alt="Player Sprite" />
+      </div>
+
+      <div id="proxmapa"></div>
+
+      <div id="info">
+        <img src="" alt="" />
+
+        <div id="overlay" class="overlay">
+          <div id="popup" class="popup">
+            <div class="tools">
+              <div class="circle">
+                <span class="red box"></span>
+              </div>
+              <div class="circle">
+                <span class="yellow box"></span>
+              </div>
+              <div class="circle">
+                <span class="green box"></span>
+              </div>
+            </div>
+            <div class="card__content">
+            </div>
+            <iframe width="900" height="500" src="https://www.youtube.com/embed/fcJv8P11TI8??autoplay=1&modestbranding=1&loop=1&rel=0&controles=0" title="video jogo 4" frameborder="0" allow="autoplay; "></iframe>
+          </div>
+        </div>
+      </div>
+      
+      <div id="info1">
+        <img src="" alt="" />
+
+        <div id="overlay1" class="overlay1">
+          <div id="popup1" class="popup1">
+            <div class="tools">
+              <div class="circle">
+                <span class="red box"></span>
+              </div>
+              <div class="circle">
+                <span class="yellow box"></span>
+              </div>
+              <div class="circle">
+                <span class="green box"></span>
+              </div>
+            </div>
+            <div class="card__content">
+            </div>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdg3VIOiMFPaXeLnIQLmu0ncw4LWKX5LhnASx9Be6APceP5ww/viewform?embedded=true" width="900" height="500" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
+          </div>
+        </div>
+      </div>
+
+      
+      </section>
+
+  </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+var dx = 0;
+var dy = 0;
+var px = 100;
+var py = 350;
+var vel = 1.5;
+var obj;
+var playerImg;
+
+function iniciar() {
+  obj = document.getElementById("player");
+  playerImg = obj.querySelector("img");
+  window.addEventListener("keydown", teclaDw);
+  window.addEventListener("keyup", teclaUp);
+  window.addEventListener("blur", resetMovement);
+
+  requestAnimationFrame(enterFrame);
+}
+
+function abrirPagina(url) {
+    window.location.href = url;
+  }
+
+function teclaDw(event) {
+  let tecla = event.key;
+  if (tecla === "ArrowLeft") {
+    dx = -1;
+    requestAnimationFrame(() => {
+      if (playerImg.src.endsWith("leftSprite1.png")) {
+        playerImg.src = "./assets/leftSprite2.png";
+      } else if (playerImg.src.endsWith("leftSprite2.png")) {
+        playerImg.src = "./assets/leftSprite3.png";
+      } else {
+        playerImg.src = "./assets/leftSprite1.png";
+      }
+    });
+  } else if (tecla === "ArrowUp") {
+    dy = -1;
+    requestAnimationFrame(() => {
+      if (playerImg.src.endsWith("upSprite1.png")) {
+        playerImg.src = "./assets/upSprite2.png";
+      } else if (playerImg.src.endsWith("upSprite2.png")) {
+        playerImg.src = "./assets/upSprite3.png";
+      } else {
+        playerImg.src = "./assets/upSprite1.png";
+      }
+    });
+  } else if (tecla === "ArrowRight") {
+    dx = 1;
+    requestAnimationFrame(() => {
+      if (playerImg.src.endsWith("rightSprite1.png")) {
+        playerImg.src = "./assets/rightSprite2.png";
+      } else if (playerImg.src.endsWith("rightSprite2.png")) {
+        playerImg.src = "./assets/rightSprite3.png";
+      } else {
+        playerImg.src = "./assets/rightSprite1.png";
+      }
+    });
+  } else if (tecla === "ArrowDown") {
+    dy = 1;
+    requestAnimationFrame(() => {
+      if (playerImg.src.endsWith("downSprite1.png")) {
+        playerImg.src = "./assets/downSprite2.png";
+      } else if (playerImg.src.endsWith("downSprite2.png")) {
+        playerImg.src = "./assets/downSprite3.png";
+      } else {
+        playerImg.src = "./assets/downSprite1.png";
+      }
+    });
+  }
+}
+
+function teclaUp(event) {
+  let tecla = event.key;
+  if (tecla === "ArrowLeft" && dx === -1) {
+    dx = 0;
+    requestAnimationFrame(() => {
+      playerImg.src = "./assets/leftSprite.png";
+    });
+  } else if (tecla === "ArrowUp" && dy === -1) {
+    dy = 0;
+    requestAnimationFrame(() => {
+      playerImg.src = "./assets/upSprite.png";
+    });
+  } else if (tecla === "ArrowRight" && dx === 1) {
+    dx = 0;
+    requestAnimationFrame(() => {
+      playerImg.src = "./assets/rightSprite.png";
+    });
+  } else if (tecla === "ArrowDown" && dy === 1) {
+    dy = 0;
+    requestAnimationFrame(() => {
+      playerImg.src = "./assets/downSprite.png";
+    });
+  }
+}
+
+function resetMovement() {
+  dx = 0;
+  dy = 0;
+}
+function enterFrame() {
+  const mapa = document.getElementById("mapa");
+  const mapaRect = mapa.getBoundingClientRect();
+
+  const mapWidth = mapaRect.width;
+  const mapHeight = mapaRect.height;
+
+  if (dx !== 0 || dy !== 0) {
+    px += dx * vel;
+    py += dy * vel;
+
+    if (px < mapaRect.left) {
+      px = mapaRect.left;
+    }
+
+    if (py < mapaRect.top) {
+      py = mapaRect.top;
+    }
+
+    if (px + obj.offsetWidth > mapaRect.right) {
+      px = mapaRect.right - obj.offsetWidth;
+    }
+
+    if (py + obj.offsetHeight > mapaRect.bottom) {
+      py = mapaRect.bottom - obj.offsetHeight;
+    }
+
+    obj.style.left = px + "px";
+    obj.style.top = py + "px";
+  }
+
+  // Verificar se o jogador está dentro da div alvo "mapa1"
+  const targetDivMapa1 = document.getElementById("proxmapa");
+  const targetRectMapa1 = targetDivMapa1.getBoundingClientRect();
+
+  if (
+    px >= targetRectMapa1.left &&
+    px + obj.offsetWidth <= targetRectMapa1.right &&
+    py >= targetRectMapa1.top &&
+    py + obj.offsetHeight <= targetRectMapa1.bottom
+  ) {
+    // Jogador está dentro da div alvo "mapa1", redirecionar para outra página
+    window.location.href = "mapa2.html";
+  }
+  // Verificar se o jogador está dentro da div alvo "info"
+  const targetDivInfo = document.getElementById("info");
+  const targetRectInfo = targetDivInfo.getBoundingClientRect();
+  const overlay = document.getElementById("overlay");
+
+  if (
+    px >= targetRectInfo.left &&
+    px + obj.offsetWidth <= targetRectInfo.right &&
+    py >= targetRectInfo.top &&
+    py + obj.offsetHeight <= targetRectInfo.bottom
+  ) {
+    // Jogador está dentro da div alvo "info", abrir o overlay
+    overlay.style.display = "block";
+  } else {
+    // Jogador não está dentro da div alvo "info", fechar o overlay
+    overlay.style.display = "none";
+  }
+  const targetDivInfo1 = document.getElementById("info1");
+  const targetRectInfo1 = targetDivInfo1.getBoundingClientRect();
+  const overlay1 = document.getElementById("overlay1");
+  if (
+    px >= targetRectInfo1.left &&
+    px + obj.offsetWidth <= targetRectInfo1.right &&
+    py >= targetRectInfo1.top &&
+    py + obj.offsetHeight <= targetRectInfo1.bottom
+  ) {
+    // Jogador está dentro da div alvo "info", abrir o overlay
+    overlay1.style.display = "block";
+  } else {
+    // Jogador não está dentro da div alvo "info", fechar o overlay
+    overlay1.style.display = "none";
+  }
+  /*
+  
+   Verificar se o jogador está dentro da div alvo "blocker"
+  const targetDivBlocker = document.getElementById("blocker");
+  const targetRectBlocker = targetDivBlocker.getBoundingClientRect();
+
+  if (
+    px + obj.offsetWidth > targetRectBlocker.left &&
+    px < targetRectBlocker.right &&
+    py + obj.offsetHeight > targetRectBlocker.top &&
+    py < targetRectBlocker.bottom
+  ) {
+    // Jogador está dentro da div alvo "blocker", impedir que ele ultrapasse
+    if (dx !== 0) {
+      px -= dx * vel;
+    }
+    if (dy !== 0) {
+      py -= dy * vel;
+    }
+  }
+*/
+  requestAnimationFrame(enterFrame);
+}
+
+window.addEventListener("load", iniciar);
+  </script>
+</html>
